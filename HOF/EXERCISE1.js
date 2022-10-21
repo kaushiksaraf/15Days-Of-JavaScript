@@ -66,7 +66,10 @@ console.log(upperCaseName)
 
 // Use map to map the products array to its corresponding prices.
 
+const getProduct = products.map((item)=> {
 
+  return item.product +'-'+ item.price})
+  console.log(getProduct)
 
 // Use filter to filter out countries containing land.
 const filterLand = countries.filter((country) =>
@@ -118,6 +121,10 @@ console.log(sum)
 
 // Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries
 
+const concatcountry=countries.reduce((acc,curr)=> acc= acc +","+ curr)
+
+
+console.log(concatcountry)
 
 
 // Explain the difference between some and every

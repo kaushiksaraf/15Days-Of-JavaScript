@@ -768,9 +768,20 @@ const products = [
 // Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
 
 const extractprice =products.map((item)=>item.price )
+/* console.log(extractprice) */
+const extractNum = extractprice.filter((item)=> typeof(item) ==='number').reduce((acc,curr)=> acc + curr)
+console.log(extractNum)
 
 
 // Find the sum of price of products using only reduce reduce(callback))
+const sum =extractprice.reduce((acc,curr)=> {
+  if(typeof(curr)=== 'number')
+ acc= acc + curr
+return acc
+})
+console.log(sum)
+
+
 
 // Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
 const categorizeCountries =(arr)=> {
@@ -813,6 +824,24 @@ console.log(categorizeCountries(countries))
 
 // Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
 
+const getnames = countries.map((item)=> item.name)
+console.log(getnames)
+
+const countletter = getnames.map((item)=> {
+ let count =0;
+for(let i=0;i<item.length;i++){
+
+if(item[0].toLowerCase()===item[i].toLowerCase()){
+
+
+   count =count +1
+}
+}
+  return item[0]+'-'+count
+})
+console.log(countletter)
+
+
 
 
 // Declare a getFirstTenCountries function and return an array of ten countries. Use different functional programming to work on the countries.js array
@@ -848,3 +877,19 @@ console.log(getLastTenCountries(countries))
 
 // Find out which letter is used many times as initial for a country name from the countries array (eg. Finland, Fiji, France etc)
 
+//to be checked 
+const getnames1 = countries.map((item)=> item.name)
+console.log(getnames1)
+
+const countFirstletter=getnames1.map((item)=>{
+  let count =0;
+  for(i=0;i<getnames1.length;i++)
+ 
+  if(item[0]===getnames1[0][0]){
+
+  count =count+1
+  }
+  return item[0] +'-'+count
+  }) 
+  
+  console.log(countFirstletter)
